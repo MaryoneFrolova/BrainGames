@@ -3,5 +3,5 @@
 "node_js":
   - "stable"
 
-"script": "make lint src/"
+"script": "make lint"
 }
