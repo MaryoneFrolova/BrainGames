@@ -8,7 +8,5 @@ start:
 
 publish:
 	npm publish
-eslint: 
-	npm install --save-dev eslint eslint-config-airbnb-base eslint-plugin-import babel-eslint
 lint:
-	npm run eslint .
+	npm run eslint 
