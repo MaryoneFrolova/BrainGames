@@ -1,6 +1,6 @@
 {
   "name": "brain_games_maryone",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/index.js",
   "bin": {
@@ -24,9 +24,9 @@
     "url": "https://github.com/MaryoneFrolova/project-lvl1-s192/issues"
   },
   "homepage": "https://github.com/MaryoneFrolova/project-lvl1-s192#readme",
-  
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "readline-sync": "^1.4.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
