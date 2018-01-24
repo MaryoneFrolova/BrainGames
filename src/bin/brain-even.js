@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-import { game } from '..';
+import gameEven from '../games/game-even';
 
-const task = 'Answer "yes" if number even otherwise answer "no".\n';
-const gameName = 'even';
-game(gameName, task);
+gameEven();

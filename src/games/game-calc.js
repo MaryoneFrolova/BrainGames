@@ -1,5 +1,8 @@
 // game Calculation: What is the result of the expression?
-import readlineSync from 'readline-sync';
+import { cons } from 'hexlet-pairs';
+import { game } from '..';
+
+const ruleGame = 'What is the result of the expression? \n';
 
 const signString = (numberSign) => {
   if (numberSign === 0) {
@@ -21,18 +24,18 @@ const getAnswer = (firstNumber, secondNumber, numberSign) => {
   return firstNumber * secondNumber;
 };
 
-const gameCalc = () => {
+export const taskCalc = () => {
   const firstNumber = Math.floor(Math.random() * 100) + 1;
   const secondNumber = Math.floor(Math.random() * 100) + 1;
   const numberSign = Math.floor(Math.random() * 3);
   const stringSign = signString(numberSign);
+  const stringQuestion = `${firstNumber} ${stringSign} ${secondNumber}`;
   const rightAnswer = getAnswer(firstNumber, secondNumber, numberSign);
-  console.log(`Question: ${firstNumber} ${stringSign} ${secondNumber}`);
-  const answerQuestion = readlineSync.question('Your answer: ');
-  if (Number(answerQuestion) !== Number(rightAnswer)) {
-    console.log(`'${answerQuestion}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
-    return false;
-  }
-  return true;
+  return cons(stringQuestion, rightAnswer);
 };
+
+const gameCalc = () => {
+  game(taskCalc, ruleGame);
+};
+
 export default gameCalc;

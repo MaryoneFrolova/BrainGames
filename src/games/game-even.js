@@ -1,5 +1,8 @@
 // Even game: Answer "yes" if number even otherwise answer "no".
-import readlineSync from 'readline-sync';
+import { cons } from 'hexlet-pairs';
+import { game } from '..';
+
+const ruleGame = 'Answer "yes" if number even otherwise answer "no".\n';
 
 const isEven = (number) => {
   if (number % 2 === 0) {
@@ -8,14 +11,13 @@ const isEven = (number) => {
   return 'no';
 };
 
-const gameEven = () => {
+export const taskEven = () => {
   const currentNumber = Math.floor(Math.random() * 100) + 1;
-  console.log(`Question: ${currentNumber}`);
-  const answerQuestion = readlineSync.question('Your answer: ');
-  if (answerQuestion !== isEven(currentNumber)) {
-    console.log(`'${answerQuestion}' is wrong answer ;(. Correct answer was '${isEven(currentNumber)}'.`);
-    return false;
-  }
-  return true;
+  return cons(currentNumber, isEven(currentNumber));
 };
+
+const gameEven = () => {
+  game(taskEven, ruleGame);
+};
+
 export default gameEven;

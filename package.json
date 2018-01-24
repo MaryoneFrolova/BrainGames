@@ -1,6 +1,6 @@
 {
   "name": "brain_games_maryone",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "main": "dist/index.js",
   "bin": {
@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/MaryoneFrolova/project-lvl1-s192#readme",
   "dependencies": {
+    "hexlet-pairs": "^1.0.5",
     "lodash": "^4.17.4",
     "readline-sync": "^1.4.7"
   },

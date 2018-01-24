@@ -1,6 +1,5 @@
 import readlineSync from 'readline-sync';
-import gameEven from './games/game-even';
-import gameCalc from './games/game-calc';
+import { car, cdr } from 'hexlet-pairs';
 
 export const nameUser = () => {
   const name = readlineSync.question('May I have your name? ');
@@ -8,31 +7,24 @@ export const nameUser = () => {
   return name;
 };
 
-const startGame = (nameGame) => {
-  switch (nameGame) {
-    case 'calc': {
-      return gameCalc();
-    }
-    case 'even': {
-      return gameEven();
-    }
-    default: {
-      return gameEven();
-    }
-  }
-};
-
-export const game = (nameGame, task) => {
+export const game = (getTask, ruleGame) => {
   console.log('Welcome to the Brain Games!');
-  console.log(task);
+  console.log(ruleGame);
   const name = nameUser();
   const countQuestion = 3;
-  for (let i = 1; i <= countQuestion; i += 1) {
-    if (startGame(nameGame) === false) {
-      console.log(`Let's try again, ${name}!`);
-      return;
+
+  for (let i = 0; i < countQuestion; i += 1) {
+    const currentTask = getTask(); // получаем пару (вопрос, ответ)
+    const currentQuestion = car(currentTask);
+    const rightAnswer = String(cdr(currentTask));
+
+    console.log(`Question: ${currentQuestion}`);
+    const answerQuestion = readlineSync.question('Your answer: ');
+    if (answerQuestion !== rightAnswer) {
+      console.log(`'${answerQuestion}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
+      return console.log(`Let's try again, ${name}!`);
     }
     console.log('Correct!');
   }
-  console.log(`Congratulations, ${name}!`);
+  return console.log(`Congratulations, ${name}!`);
 };
