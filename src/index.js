@@ -6,13 +6,11 @@ export const nameUser = () => {
   return name;
 };
 
-const isEven = number => {
+const isEven = (number) => {
   if (number % 2 === 0) {
     return 'yes';
-  } 
-  else {
-    return 'no';
   }
+  return 'no';
 };
 
 export const game = () => {
@@ -20,7 +18,7 @@ export const game = () => {
   console.log('Answer "yes" if number even otherwise answer "no".\n');
   const name = nameUser();
   const countQuestion = 3;
-  for (let i = 1; i <= countQuestion; i++) {
+  for (let i = 1; i <= countQuestion; i += 1) {
     const currentNumber = Math.floor(Math.random() * 100) + 1;
     console.log(`Question: ${currentNumber}`);
     const answerQuestion = readlineSync.question('Your answer: ');
@@ -29,9 +27,7 @@ export const game = () => {
       console.log(`Let's try again, ${name}!`);
       return;
     }
-    else {
-      console.log('Correct!')
-    }
+    console.log('Correct!');
   }
   console.log(`Congratulations, ${name}!`);
 };
