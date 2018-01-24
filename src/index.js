@@ -2,11 +2,18 @@ import readlineSync from 'readline-sync';
 
 export const nameUser = () => {
   const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}`);
+  console.log(`Hello, ${name} \n`);
   return name;
 };
 
-const isEven = number => (number % 2 === 0) ? 'yes' : 'no';
+const isEven = number => {
+  if (number % 2 === 0) {
+    return 'yes';
+  } 
+  else {
+    return 'no';
+  }
+};
 
 export const game = () => {
   console.log('Welcome to the Brain Games!');
@@ -20,13 +27,11 @@ export const game = () => {
     if (answerQuestion !== isEven(currentNumber)) {
       console.log(`'${answerQuestion}' is wrong answer ;(. Correct answer was '${isEven(currentNumber)}'.`);
       console.log(`Let's try again, ${name}!`);
-      break;
-      } 
-    else {
-      console.log('Correct!');
+      return;
     }
-    if (i === countQuestion) {
-      console.log(`Congratulations, ${name}!`);
+    else {
+      console.log('Correct!')
     }
   }
+  console.log(`Congratulations, ${name}!`);
 };

@@ -2,4 +2,4 @@
 import { nameUser } from '..';
 
 console.log('Welcome to the Brain Games!');
-const name = nameUser();
+nameUser();
