@@ -5,29 +5,16 @@ import { game } from '..';
 const ruleGame = 'Balance the given number.';
 
 const balance = (number) => {
-  let currentNumber = number;
-  if (number / 10 === 0) {
-    return number;
+  const arraySepareteNumber = String(number).split('').map(Number);
+  const min = Math.min.apply(null, arraySepareteNumber);
+  const max = Math.max.apply(null, arraySepareteNumber);
+  if (max - min > 1) {
+    const def = Math.floor((max - min) / 2);
+    arraySepareteNumber[arraySepareteNumber.indexOf(min)] += def;
+    arraySepareteNumber[arraySepareteNumber.indexOf(max)] -= def;
+    return balance(arraySepareteNumber.join(''));
   }
-  let result = 0;
-  let count = 1;
-  let sum = 0;
-  while (parseInt(currentNumber / 10, 10) !== 0) {
-    sum += currentNumber % 10;
-    count += 1; // количество цифр числа
-    currentNumber = parseInt(currentNumber / 10, 10);
-  }
-  sum += currentNumber % 10; // сумма всех цифр числа
-  const avarage = parseInt(sum / count, 10); // среднее приходящееся на каждое число
-  let def = sum % count; // количество единиц, которые нужно добавить с конца
-  for (let i = 0; i < count; i += 1) {
-    result += avarage * (10 ** i);
-    if (def > 0) {
-      result += 10 ** i;
-      def -= 1;
-    }
-  }
-  return result;
+  return arraySepareteNumber.sort((a, b) => a - b).join('');
 };
 
 export const taskBalance = () => {

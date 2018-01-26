@@ -14,18 +14,26 @@ export const game = (getTask, ruleGame) => {
   const name = nameUser();
   const countQuestion = 3;
 
-  for (let i = 0; i < countQuestion; i += 1) {
-    const currentTask = getTask(); // получаем пару (вопрос, ответ)
+  const iter = (att) => {
+    if (att < 1) {
+      return console.log(`Congratulations, ${name}!`);
+    }
+
+    const currentTask = getTask();
     const currentQuestion = car(currentTask);
     const rightAnswer = String(cdr(currentTask));
 
     console.log(`Question: ${currentQuestion}`);
     const answerQuestion = readlineSync.question('Your answer: ');
+
     if (answerQuestion !== rightAnswer) {
       console.log(`'${answerQuestion}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
       return console.log(`Let's try again, ${name}!`);
     }
+
     console.log('Correct!');
-  }
-  return console.log(`Congratulations, ${name}!`);
+    return iter(att - 1);
+  };
+
+  iter(countQuestion);
 };
