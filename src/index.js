@@ -10,6 +10,7 @@ export const nameUser = () => {
 export const game = (getTask, ruleGame) => {
   console.log('Welcome to the Brain Games!');
   console.log(ruleGame);
+  console.log();
   const name = nameUser();
   const countQuestion = 3;
 

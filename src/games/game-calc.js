@@ -2,7 +2,7 @@
 import { cons } from 'hexlet-pairs';
 import { game } from '..';
 
-const ruleGame = 'What is the result of the expression? \n';
+const ruleGame = 'What is the result of the expression?';
 
 const signString = (numberSign) => {
   if (numberSign === 0) {

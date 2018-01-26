@@ -2,20 +2,10 @@
 import { cons } from 'hexlet-pairs';
 import { game } from '..';
 
-const ruleGame = 'Find the greatest common divisor of given numbers. \n';
+const ruleGame = 'Find the greatest common divisor of given numbers.';
 
-const gcd = (firstNumber, secondNumber) => {
-  let a = firstNumber;
-  let b = secondNumber;
-  while (a !== b) {
-    if (a > b) {
-      a -= b;
-    } else {
-      b -= a;
-    }
-  }
-  return a;
-};
+const gcd = (a, b) => (b ? gcd(b, a % b) : a);
+
 
 export const taskGcd = () => {
   const firstNumber = Math.floor(Math.random() * 100) + 1;

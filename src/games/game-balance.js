@@ -2,7 +2,7 @@
 import { cons } from 'hexlet-pairs';
 import { game } from '..';
 
-const ruleGame = 'Balance the given number. \n';
+const ruleGame = 'Balance the given number.';
 
 const balance = (number) => {
   let currentNumber = number;
