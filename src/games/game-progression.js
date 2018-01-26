@@ -1,4 +1,4 @@
-// game GCD: Find the greatest common divisor of given numbers.
+// game progression: what number is missing in progression
 import { cons } from 'hexlet-pairs';
 import { game } from '..';
 
